@@ -14,7 +14,7 @@ Ix = Iknn(:,1:(nnx))';
 Jx = repmat(1:Nx, [nnx 1]);
 
 norm=@(x)sqrt(sum(x.^2,2));
- 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if weightedG
     Wx = 1./(norm( (x(Ix,:) - x(Jx,:))) + 1e-5); 
 else 
@@ -29,7 +29,7 @@ end
     
 Gx = sparse( 1:nnx*Nx, Ix(:), Wx, nnx*Nx, Nx  ) - ...
      sparse( 1:nnx*Nx, Jx(:), Wx, nnx*Nx, Nx  );
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if (plotting)
     Wx = reshape(Wx,size(Jx))/max(Wx(:));
 
